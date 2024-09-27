@@ -1,0 +1,36 @@
+-- Examen: Taller de base de datos
+
+-- crear un usuario con el nombre de tu equipo
+-- por ejemplo uequipo01 para ejecutar el script con las tablas
+-- y crear sus procesos almacenados, funciones y vistas
+
+create table t_marcas(
+  id_marca number(5) primary key,
+  marca varchar2(128)
+);
+
+create table t_modelos(
+  id_modelo number(5) primary key,
+  modelo varchar2(128)
+);
+
+create table t_cilindros(
+  id_cilndro number(5) primary key,
+  cilindro varchar2(32)
+);
+
+create table t_vehiculos(
+  id_vehiculo number(10) primary key,
+  num_economico varchar2(32),
+  num_placa varchar2(16),
+  num_serie varchar2(64),
+  tarjeta_circula varchar2(64),
+  poliza_seguro varchar2(64),
+  color varchar2(64),
+  anio varchar2(4),
+  fecha date,
+  id_marca number(5) REFERENCES t_marcas(id_marca),
+  id_modelo number(5) REFERENCES t_modelos(id_modelo),
+  id_cilndro number(5) REFERENCES t_cilindros(id_cilndro)
+);
+
